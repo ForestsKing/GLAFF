@@ -1,0 +1,24 @@
+Informer_Standard_Traffic_96_192_0  
+MSE:0.4558, MAE:0.3727
+
+Informer_Plugin_Traffic_96_192_0  
+MSE:0.3309, MAE:0.2809
+
+DLinear_Standard_Traffic_96_192_0  
+MSE:0.4486, MAE:0.3564
+
+DLinear_Plugin_Traffic_96_192_0  
+MSE:0.2998, MAE:0.2604
+
+TimesNet_Standard_Traffic_96_192_0  
+MSE:0.3615, MAE:0.3099
+
+TimesNet_Plugin_Traffic_96_192_0  
+MSE:0.3272, MAE:0.2782
+
+iTransformer_Standard_Traffic_96_192_0  
+MSE:0.3264, MAE:0.2793
+
+iTransformer_Plugin_Traffic_96_192_0  
+MSE:0.2853, MAE:0.2488
+
