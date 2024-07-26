@@ -80,7 +80,7 @@ class Solver:
         label_len = self.args.hist_len // 2
         x_enc = x_data.to(self.device)
         x_mark_enc = x_time.to(self.device)
-        x_dec = torch.zeros_like(torch.concat([x_data[:, -label_len:, :], y_data], dim=1).to(self.device))
+        x_dec = torch.concat([x_data[:, -label_len:, :], torch.zeros_like(y_data)], dim=1).to(self.device)
         x_mark_dec = torch.concat([x_time[:, -label_len:, :], y_time], dim=1).to(self.device)
 
         pred, reco, map1, map2 = self.model(x_enc, x_mark_enc, x_dec, x_mark_dec)
