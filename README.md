@@ -1,5 +1,3 @@
-https://drive.google.com/drive/folders/1028Ky-bJU6rSBXIMR6tf0wRAAvxIS6xP?usp=sharing
-
 # GLAFF
 
 **Rethinking the Power of Timestamps for Robust Time Series Forecasting: A Global-Local Fusion Perspective**
