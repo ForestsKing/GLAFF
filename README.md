@@ -12,7 +12,7 @@ Time series forecasting has played a pivotal role across various industries, inc
 
 1. Install Python 3.10.13 and PyTorch 2.1.2.
 
-2. Download datasets and checkpoints from [Google Cloud](https://drive.google.com/drive/folders/1UJ6SGfb6h-9R0L18FLDXpISKh1nhaqWA?usp=sharing). The datasets have been well pre-processed.
+2. Download datasets and checkpoints from [Google Cloud](https://drive.google.com/drive/folders/1028Ky-bJU6rSBXIMR6tf0wRAAvxIS6xP?usp=sharing). The datasets have been well pre-processed.
 
 3. You can readily observe the superiority of GLAF through the checkpoints we provide:
 
