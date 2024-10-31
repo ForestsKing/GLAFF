@@ -15,7 +15,7 @@ if __name__ == '__main__':
                         choices=['Informer', 'DLinear', 'TimesNet', 'iTransformer'], help='backbone network')
     parser.add_argument('--flag', type=str, default='Standard',
                         choices=['Plugin', 'Standard'], help='GLAFF or Standard')
-    parser.add_argument('--only_test', default=True, action='store_true', help='only test the model')
+    parser.add_argument('--only_test', default=False, action='store_true', help='only test the model')
 
     """ Data """
     parser.add_argument('--data_path', type=str, default='./dataset/', help='path to dataset')
