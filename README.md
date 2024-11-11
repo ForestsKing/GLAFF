@@ -1,8 +1,12 @@
+<div align="center">
+
 # GLAFF
 
-**Rethinking the Power of Timestamps for Robust Time Series Forecasting: A Global-Local Fusion Perspective**
+[![preprint](https://img.shields.io/static/v1?label=arXiv&message=2409.18696&color=B31B1B&logo=arXiv)](https://arxiv.org/abs/2409.18696)
 
-<a href='https://arxiv.org/pdf/2409.18696'><img src='https://img.shields.io/badge/Paper-PDF-orange'></a> 
+</div>
+
+**Rethinking the Power of Timestamps for Robust Time Series Forecasting: A Global-Local Fusion Perspective**
 
 Time series forecasting has played a pivotal role across various industries, including finance, transportation, energy, healthcare, and climate. Due to the abundant seasonal information they contain, timestamps possess the potential to offer robust global guidance for forecasting techniques. However, existing works primarily focus on local observations, with timestamps being treated merely as an optional supplement that remains underutilized. When data gathered from the real world is polluted, the absence of global information will damage the robust prediction capability of these algorithms. To address these problems, we propose a novel framework named GLAFF. Within this framework, the timestamps are modeled individually to capture the global dependencies. Working as a plugin, GLAFF adaptively adjusts the combined weights for global and local information, enabling seamless collaboration with any time series forecasting backbone. Extensive experiments conducted on nine real-world datasets demonstrate that GLAFF significantly enhances the average performance of widely used mainstream forecasting models by 12.5%, surpassing the previous state-of-the-art method by 5.5%.
 
