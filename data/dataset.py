@@ -15,7 +15,9 @@ class MyDataset(Dataset):
         data = df.drop(['date'], axis=1).values
 
         scaler = StandardScaler()
-        data = scaler.fit_transform(data)
+        train_data = data[:int(0.6 * len(data)), :]
+        scaler.fit(train_data)
+        data = scaler.transform(data)
 
         if flag == 'train':
             self.data = data[:int(0.6 * len(data)), :]
