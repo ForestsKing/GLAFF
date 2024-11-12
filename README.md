@@ -1,6 +1,6 @@
 <div align="center">
 
-# GLAFF
+# GLAFF: Robust Time Series Forecasting
 
 [![preprint](https://img.shields.io/static/v1?label=arXiv&message=2409.18696&color=B31B1B&logo=arXiv)](https://arxiv.org/abs/2409.18696)
 ![Visits Badge](https://badges.pufler.dev/visits/ForestsKing/GLAFF)
