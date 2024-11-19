@@ -1,11 +1,17 @@
-import numpy as np
+from einops import rearrange
+from sklearn.metrics import mean_squared_error, mean_absolute_error
 
 
 def evaluate(pred, true):
-    mse = np.mean(np.square(pred - true))
-    mae = np.mean(np.abs(pred - true))
+    pred = rearrange(pred, 'N L C -> (N C) L')
+    true = rearrange(true, 'N L C -> (N C) L')
 
-    return mse, mae
+    res = {
+        'MSE': mean_squared_error(true, pred),
+        'MAE': mean_absolute_error(true, pred),
+    }
+
+    return res
 
 
 def getModelSize(model):

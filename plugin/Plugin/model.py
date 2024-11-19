@@ -37,17 +37,24 @@ class Plugin(nn.Module):
         )
 
     def forward(self, x_enc_true, x_mark_enc, x_dec_pred, x_mark_dec):
+        means = torch.mean(x_enc_true, dim=1, keepdim=True)
+        stdev = torch.std(x_enc_true, dim=1, keepdim=True) + 1e-6
+        x_enc_true = (x_enc_true - means) / stdev
+        x_dec_pred = (x_dec_pred - means) / stdev
+
         # map
         x_enc_map = self.Encoder(x_mark_enc)
         x_dec_map = self.Encoder(x_mark_dec)
 
         # denormalize
-        scale_true = torch.quantile(x_enc_true, self.q, 1, True) - torch.quantile(x_enc_true, 1 - self.q, 1, True)
-        scale_map = torch.quantile(x_enc_map, self.q, 1, True) - torch.quantile(x_enc_map, 1 - self.q, 1, True)
-        stdev = scale_true / scale_map
-        means = torch.median(x_enc_true - x_enc_map * stdev, dim=1, keepdim=True)[0]
-        x_enc_map = x_enc_map * stdev + means
-        x_dec_map = x_dec_map * stdev + means
+        robust_means_true = torch.median(x_enc_true, dim=1, keepdim=True)[0]
+        robust_means_map = torch.median(x_enc_map, dim=1, keepdim=True)[0]
+        robust_stdev_true = torch.quantile(x_enc_true, self.q, 1, True) - torch.quantile(
+            x_enc_true, 1 - self.q, 1, True) + 1e-6
+        robust_stdev_map = torch.quantile(x_enc_map, self.q, 1, True) - torch.quantile(
+            x_enc_map, 1 - self.q, 1, True) + 1e-6
+        x_enc_map = (x_enc_map - robust_means_map) / robust_stdev_map * robust_stdev_true + robust_means_true
+        x_dec_map = (x_dec_map - robust_means_map) / robust_stdev_map * robust_stdev_true + robust_means_true
 
         # combine
         error = x_enc_true - x_enc_map
@@ -55,4 +62,6 @@ class Plugin(nn.Module):
         x_dec = torch.stack([x_dec_map, x_dec_pred], dim=-1)
         pred = torch.sum(x_dec * weight, dim=-1)
 
-        return pred, x_enc_map, x_dec_map
+        pred = pred * stdev + means
+        
+        return pred

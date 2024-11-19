@@ -1,7 +1,6 @@
 import argparse
 from time import time
 
-import numpy as np
 import torch
 
 from solver.solver import Solver
@@ -25,11 +24,11 @@ if __name__ == '__main__':
     parser.add_argument('--pred_len', type=int, default=192, help='length of prediction window')
 
     """ Plugin """
-    parser.add_argument('--dim', type=int, default=512, help='dimension of hidden state')
-    parser.add_argument('--dff', type=int, default=2048, help='dimension of feed forward')
+    parser.add_argument('--dim', type=int, default=256, help='dimension of hidden state')
+    parser.add_argument('--dff', type=int, default=512, help='dimension of feed forward')
     parser.add_argument('--head_num', type=int, default=8, help='number of heads')
     parser.add_argument('--layer_num', type=int, default=2, help='number of layers')
-    parser.add_argument('--dropout', type=float, default=0.1, help='dropout rate')
+    parser.add_argument('--dropout', type=float, default=0.6, help='dropout rate')
     parser.add_argument('--q', type=float, default=0.75, help='quantile')
 
     """ Optim """
@@ -53,7 +52,6 @@ if __name__ == '__main__':
 
     fixSeed(args.seed)
 
-    mse_list, mae_list = [], []
     for ii in range(args.itr):
         setting = '{0}_{1}_{2}_{3}_{4}_{5}'.format(
             args.model,
@@ -76,22 +74,18 @@ if __name__ == '__main__':
 
         print('\n>>>>>>>>  testing : {}  <<<<<<<<\n'.format(setting))
         start = time()
-        mse, mae, model_size = solver.test()
-        mse_list.append(mse)
-        mae_list.append(mae)
+        res = solver.test()
         test_time = time() - start
         print('Testing Time: {:.4f}s'.format(test_time))
 
         f = open('./result.txt', 'a')
         f.write(setting + "  \n")
         if not args.only_test:
-            f.write('Train:{0:.4f} s, Test:{1:.4f} s, Size:{2:.4f} MB\n'.format(train_time, test_time, model_size))
-        f.write('MSE:{0:.4f}, MAE:{1:.4f}\n'.format(mse, mae))
+            f.write('Train:{0:.4f} s, Test:{1:.4f} s, Size:{2:.4f} MB\n'.format(train_time, test_time, res['size']))
+        f.write('MSE:{0:.4f}, MAE:{1:.4f}\n'.format(res['MSE'], res['MAE']))
         f.write('\n')
         f.close()
 
         torch.cuda.empty_cache()
 
-    print('Done!')
-    print('MSE: {:.4f} +- {:.4f}'.format(np.mean(mse_list), np.std(mse_list)))
-    print('MAE: {:.4f} +- {:.4f}'.format(np.mean(mae_list), np.std(mae_list)))
+    print('\nDone!')

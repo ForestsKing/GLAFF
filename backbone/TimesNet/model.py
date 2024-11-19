@@ -59,8 +59,6 @@ class TimesNet(nn.Module):
         pred = dec_out[:, -self.pred_len:, :]
 
         if self.flag == 'Plugin':
-            map1 = pred.clone()
-            pred, reco, map2 = self.plugin(x_enc_copy, x_mark_enc_copy, map1, x_mark_dec_copy[:, -self.pred_len:, :])
-            return pred, reco, map1, map2
-        else:
-            return pred, None, None, None
+            pred = self.plugin(x_enc_copy, x_mark_enc_copy, pred, x_mark_dec_copy[:, -self.pred_len:, :])
+
+        return pred

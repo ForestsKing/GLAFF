@@ -1,24 +1,144 @@
 Informer_Standard_Traffic_96_192_0  
-MSE:0.4558, MAE:0.3727
+MSE:0.8401, MAE:0.4395
 
 Informer_Plugin_Traffic_96_192_0  
-MSE:0.3309, MAE:0.2809
+MSE:0.7027, MAE:0.3916
 
 DLinear_Standard_Traffic_96_192_0  
-MSE:0.4486, MAE:0.3564
+MSE:0.6374, MAE:0.3909
 
 DLinear_Plugin_Traffic_96_192_0  
-MSE:0.2998, MAE:0.2604
+MSE:0.5104, MAE:0.3197
 
 TimesNet_Standard_Traffic_96_192_0  
-MSE:0.3615, MAE:0.3099
+MSE:0.6604, MAE:0.3416
 
 TimesNet_Plugin_Traffic_96_192_0  
-MSE:0.3272, MAE:0.2782
+MSE:0.6034, MAE:0.3273
 
 iTransformer_Standard_Traffic_96_192_0  
-MSE:0.3264, MAE:0.2793
+MSE:0.4514, MAE:0.2975
 
 iTransformer_Plugin_Traffic_96_192_0  
-MSE:0.2853, MAE:0.2488
+MSE:0.4292, MAE:0.2944
+
+Informer_Standard_Electricity_96_192_0  
+MSE:0.4567, MAE:0.4871
+
+Informer_Plugin_Electricity_96_192_0  
+MSE:0.3437, MAE:0.4076
+
+DLinear_Standard_Electricity_96_192_0  
+MSE:0.2038, MAE:0.2899
+
+DLinear_Plugin_Electricity_96_192_0  
+MSE:0.1753, MAE:0.2707
+
+TimesNet_Standard_Electricity_96_192_0  
+MSE:0.2003, MAE:0.2979
+
+TimesNet_Plugin_Electricity_96_192_0  
+MSE:0.2032, MAE:0.2997
+
+iTransformer_Standard_Electricity_96_192_0  
+MSE:0.1688, MAE:0.2570
+
+iTransformer_Plugin_Electricity_96_192_0  
+MSE:0.1675, MAE:0.2579
+
+Informer_Standard_Traffic_48_192_0  
+MSE:0.8195, MAE:0.4314
+
+Informer_Plugin_Traffic_48_192_0  
+MSE:0.7191, MAE:0.3884
+
+DLinear_Standard_Traffic_48_192_0  
+MSE:0.7902, MAE:0.4545
+
+DLinear_Plugin_Traffic_48_192_0  
+MSE:0.5663, MAE:0.3405
+
+TimesNet_Standard_Traffic_48_192_0  
+MSE:0.6913, MAE:0.3603
+
+TimesNet_Plugin_Traffic_48_192_0  
+MSE:0.6172, MAE:0.3348
+
+iTransformer_Standard_Traffic_48_192_0  
+MSE:0.5146, MAE:0.3176
+
+iTransformer_Plugin_Traffic_48_192_0  
+MSE:0.4936, MAE:0.3112
+
+Informer_Standard_Electricity_48_192_0  
+MSE:0.3904, MAE:0.4332
+
+Informer_Plugin_Electricity_48_192_0  
+MSE:0.3390, MAE:0.4039
+
+DLinear_Standard_Electricity_48_192_0  
+MSE:0.2438, MAE:0.3209
+
+DLinear_Plugin_Electricity_48_192_0  
+MSE:0.1991, MAE:0.2943
+
+TimesNet_Standard_Electricity_48_192_0  
+MSE:0.1967, MAE:0.2921
+
+TimesNet_Plugin_Electricity_48_192_0  
+MSE:0.1986, MAE:0.2927
+
+iTransformer_Standard_Electricity_48_192_0  
+MSE:0.1933, MAE:0.2745
+
+iTransformer_Plugin_Electricity_48_192_0  
+MSE:0.1874, MAE:0.2730
+
+Informer_Standard_Traffic_24_192_0  
+MSE:0.8164, MAE:0.4338
+
+Informer_Plugin_Traffic_24_192_0  
+MSE:0.7561, MAE:0.4050
+
+DLinear_Standard_Traffic_24_192_0  
+MSE:0.8750, MAE:0.4931
+
+DLinear_Plugin_Traffic_24_192_0  
+MSE:0.6028, MAE:0.3577
+
+TimesNet_Standard_Traffic_24_192_0  
+MSE:0.7295, MAE:0.3703
+
+TimesNet_Plugin_Traffic_24_192_0  
+MSE:0.6286, MAE:0.3384
+
+iTransformer_Standard_Traffic_24_192_0  
+MSE:0.6024, MAE:0.3511
+
+iTransformer_Plugin_Traffic_24_192_0  
+MSE:0.5807, MAE:0.3356
+
+Informer_Standard_Electricity_24_192_0  
+MSE:0.4014, MAE:0.4390
+
+Informer_Plugin_Electricity_24_192_0  
+MSE:0.3456, MAE:0.4047
+
+DLinear_Standard_Electricity_24_192_0  
+MSE:0.2849, MAE:0.3528
+
+DLinear_Plugin_Electricity_24_192_0  
+MSE:0.2318, MAE:0.3239
+
+TimesNet_Standard_Electricity_24_192_0  
+MSE:0.2132, MAE:0.3022
+
+TimesNet_Plugin_Electricity_24_192_0  
+MSE:0.2112, MAE:0.2981
+
+iTransformer_Standard_Electricity_24_192_0  
+MSE:0.2423, MAE:0.3057
+
+iTransformer_Plugin_Electricity_24_192_0  
+MSE:0.2212, MAE:0.2955
 

@@ -83,12 +83,8 @@ class Solver:
         x_dec = torch.concat([x_data[:, -label_len:, :], torch.zeros_like(y_data)], dim=1).to(self.device)
         x_mark_dec = torch.concat([x_time[:, -label_len:, :], y_time], dim=1).to(self.device)
 
-        pred, reco, map1, map2 = self.model(x_enc, x_mark_enc, x_dec, x_mark_dec)
-        if self.args.flag == 'Plugin':
-            loss = self.criterion(torch.concat([pred, reco, map1, map2], dim=1),
-                                  torch.concat([y_data, x_data, y_data, y_data], dim=1))
-        else:
-            loss = self.criterion(pred, y_data)
+        pred = self.model(x_enc, x_mark_enc, x_dec, x_mark_dec)
+        loss = self.criterion(pred, y_data)
 
         return loss, pred
 
@@ -144,11 +140,12 @@ class Solver:
         pred = np.concatenate(pred, axis=0)
         true = np.concatenate(true, axis=0)
 
-        print('Hist Shape:', hist.shape)
+        print('\nHist Shape:', hist.shape)
         print('Pred Shape:', pred.shape)
         print('True Shape:', true.shape)
 
-        mse, mae = evaluate(pred, true)
-        print('MSE:{0:.4f}, MAE:{1:.4f}'.format(mse, mae))
+        res = evaluate(pred, true)
+        res["Size"] = model_size
+        print('\nMSE:{0:.4f}, MAE:{1:.4f}'.format(res['MSE'], res['MAE']))
 
-        return mse, mae, model_size
+        return res

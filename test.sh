@@ -1,11 +1,9 @@
-python -u main.py --model Informer --flag Standard --dataset Traffic --hist_len 96 --pred_len 192 --only_test
-python -u main.py --model Informer --flag Plugin --dataset Traffic --hist_len 96 --pred_len 192 --only_test
-
-python -u main.py --model DLinear --flag Standard --dataset Traffic --hist_len 96 --pred_len 192 --only_test
-python -u main.py --model DLinear --flag Plugin --dataset Traffic --hist_len 96 --pred_len 192 --only_test
-
-python -u main.py --model TimesNet --flag Standard --dataset Traffic --hist_len 96 --pred_len 192 --only_test
-python -u main.py --model TimesNet --flag Plugin --dataset Traffic --hist_len 96 --pred_len 192 --only_test
-
-python -u main.py --model iTransformer --flag Standard --dataset Traffic --hist_len 96 --pred_len 192 --only_test
-python -u main.py --model iTransformer --flag Plugin --dataset Traffic --hist_len 96 --pred_len 192 --only_test
+for hist_len in 96 48 24; do
+  for dataset in Traffic Electricity; do
+    for model in Informer DLinear TimesNet iTransformer; do
+      for flag in Standard Plugin; do
+        python -u main.py --model $model --flag $flag --dataset $dataset --hist_len $hist_len --pred_len 192 --only_test
+      done
+    done
+  done
+done
