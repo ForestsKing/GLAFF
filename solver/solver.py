@@ -145,7 +145,7 @@ class Solver:
         print('True Shape:', true.shape)
 
         res = evaluate(pred, true)
-        res["Size"] = model_size
+        res["size"] = model_size
         print('\nMSE:{0:.4f}, MAE:{1:.4f}'.format(res['MSE'], res['MAE']))
 
         return res
