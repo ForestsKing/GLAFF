@@ -2,7 +2,7 @@
 
 # GLAFF: Robust Time Series Forecasting
 
-[![preprint](https://img.shields.io/static/v1?label=arXiv&message=2409.18696&color=B31B1B&logo=arXiv)](https://arxiv.org/abs/2409.18696)
+<a href='https://proceedings.neurips.cc/paper_files/paper/2023/hash/22f5d8e689d2a011cd8ead552ed59052-Abstract-Conference.html'><img src='https://img.shields.io/badge/Paper-PDF-orange'></a> 
 
 </div>
 
